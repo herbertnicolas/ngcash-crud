@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+import { Axios } from 'axios';
 
 function App() {
   const [values, setValues] = useState();
@@ -10,9 +11,13 @@ function App() {
     }));
   };
   
-  const handleClickButton = value=>{
-    console.log(values);
-    
+  const handleClickButton = () => {
+    Axios.post("http://localhost:3001/cadastro", {
+      user: values.user,
+      password: values.password
+    }).then((response)=>{
+      console.log(response); 
+    })
   }
 
   return (
