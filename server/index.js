@@ -1,25 +1,33 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const mysql = require("mysql");
+// const mysql = require("mysql");
 const cors = require("cors");
 
-const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "h935763",
-    database: "crud-bank"
+// const db = mysql.createPool({
+//     host:'localhost',
+//     user:'root',
+//     password:'h935763',
+//     database:'bank'
+// });
+
+var mysql = require('mysql');
+var pool  = mysql.createPool({
+  connectionLimit : 10,
+  host            : 'localhost',
+  user            : 'root',
+  password        : 'h935763',
+  database        : 'bank'
+});
+ 
+pool.query('INSERT INTO users (nome , password) values ("relampago","marquinhos")', function (error, results, fields) {
+  if (error) throw error;
 });
 
-app.use(cors());
-app.use(express.json);
-
-app.get('/', (req,res) => {
-    let code = "INSERT INTO users ( username, password) values ('Anthony', '123456')";
-
-    db.query(code, (err, result)=>{
-        console.log(err); 
-    });
-});
+// app.get("/", (req,res) => {
+//     db.query("SELECT * FROM bank.users", (err, result) => {
+//         res.send(result);
+//     })      
+// });
 
 // app.post('/cadastro', (req,res) => {
 //     const { username } = req.body;
@@ -32,6 +40,6 @@ app.get('/', (req,res) => {
 // });
 
 
-app.listen(3001, ()=>{
-    console.log("RODANDO SERVER")
+app.listen(3001, () => {
+    console.log("RODANDO SERVER");
 });
