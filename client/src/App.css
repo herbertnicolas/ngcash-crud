@@ -1,32 +1,48 @@
-.app--container{
+*{
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+}
+div{
+}
+
+.container{
+  display: block;
+  margin-top: 200px;
+  text-align:center;
+}
+.inner{
+  text-align: left;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 30px;
+}
+Form{
+  display:flex;
+  gap: 60px;
+}
+.login, .signup{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  box-shadow: 5px 10px rgba(8, 51, 88, 0.5);
+  background-color: rgba(11, 109, 194, 0.17);
+  gap: 10px;
+  width: 270px;
+  padding: 35px;
+  border-radius: 10px;
+  border-top-right-radius: 0px;
 }
-
-.login--container{
-  border: 3px solid black;
-  border-radius: 8px;
-  align-items: center;
-  padding: 20px;
-  margin: 10px auto;
-}
-
-.title{
-  text-align: center;
-  margin-bottom:10px;
-}
-
-.login--input{
-  border: 1px solid red;
-  display: block;
+.log-field{
+  width:100%;
   padding: 7px;
-  margin-bottom: 10px;
+  margin-right:5px;
 }
-
 .btn{
-  padding: 7px;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 5px;
+  width:100%;
+}
+
+input{
+  display:block;
 }

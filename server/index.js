@@ -16,11 +16,12 @@ var pool  = mysql.createPool({
   host            : 'localhost',
   user            : 'root',
   password        : 'h935763',
-  database        : 'bank'
+  database        : 'crud-bank'
 });
  
-pool.query('INSERT INTO users (nome , password) values ("relampago","marquinhos")', function (error, results, fields) {
+pool.query('INSERT INTO users (nome , password) values ("herbin","password")', function (error, results, fields) {
   if (error) throw error;
+  console.log('The solution is: ', results[0].solution);
 });
 
 // app.get("/", (req,res) => {
